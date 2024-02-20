@@ -1,0 +1,6 @@
+# Ignorar todos los binarios(.exe y archivos sin extension)
+*
+!/**/
+!*.*
+
+*.exe
