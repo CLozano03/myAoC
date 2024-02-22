@@ -17,6 +17,7 @@ bool all_0(const vector<long>& v){
     return true;
 }
 
+/* Calcula el siguiente vector haciendo la resta de los elementos adyacentes */
 vector<long>& next_vector(vector<long>& v){
     vector<long>& next = *new vector<long>();
     for (int i = 0; i < v.size() - 1; i++){
@@ -24,7 +25,6 @@ vector<long>& next_vector(vector<long>& v){
     }
     return next;
 }
-
 
 long next_val(vector<long>& v){
     return next_val_aux(v, next_vector(v));
@@ -46,13 +46,9 @@ int main() {
         while(iss >> n){
             v.push_back(n);
         }
-
         suma_next_vals += next_val(v);
     }
-
     cout << "Suma de next_values: " << suma_next_vals << endl;
-    
-
 
     return 0;
 }  
