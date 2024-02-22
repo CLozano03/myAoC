@@ -11,6 +11,7 @@ using namespace std;
 
 long next_val_aux(vector<long>& v, vector<long>& next);
 
+/* Comprueba si todos los elementos del vector son 0 */
 bool all_0(const vector<long>& v){
     for(int i : v){if(i != 0) return false; }
     return true;
