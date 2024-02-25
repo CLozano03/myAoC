@@ -2,7 +2,8 @@
     <h2>Soluciones Advent of Code</h2>
 </div>
 
-Repositorio con el código de las soluciones al concurso de **Advent of code**
+Repositorio con el código de las soluciones al concurso de **Advent of code** 
+
 Enlace a la [página oficial](https://adventofcode.com/)
 
 ##### Años realizados:
