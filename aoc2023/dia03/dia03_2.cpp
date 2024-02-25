@@ -9,29 +9,18 @@
 
 using namespace std;
 
-#define SCHEMA_TAM 140
+vector<vector<char>> schema;
+/* en cada uno de los elementos de este vector:
+    [0] -> fila
+    [1] -> columna
+    [2] -> part numbers adyacentes
+    [3] -> gear ratio
+*/
+vector<vector<int>> simbolos_info;
 
-std::vector<std::vector<char>> leer_entrada(){
-    std::vector<std::vector<char>> ret(140, std::vector<char>(140)); 
-    string linea;
-    int n_linea = 0;
+bool is_symbol(char c){ return c != '.' && !isdigit(c); }
 
-    while(!std::cin.eof()){
-        getline(cin, linea);
-
-        for(int j = 0; j < SCHEMA_TAM; j++){
-            ret[n_linea][j] = linea[j];
-        }
-        n_linea++;
-    }
-    return ret;
-}
-
-bool is_symbol(char c){
-    return c != '.' && !isdigit(c);
-}
-
-int schema_to_int(std::vector<std::vector<char>> schema, int fila, int ini, int fin){
+int schema_to_int(int fila, int ini, int fin){
     int ret = 0;
 
     while(ini <= fin) {
@@ -41,55 +30,70 @@ int schema_to_int(std::vector<std::vector<char>> schema, int fila, int ini, int 
     return ret;
 }
 
-// devuelve el valor del "gear ratio" en la posición pos en caso de haber dos part numbers exactamente adyacentes
-int gear_ratio(std::vector<std::vector<char>> schema, pair<int, int> pos){
-    int fila = pos.first; int columna = pos.second;
-    int cuenta_part_numbers = 0;
-
-    if(isdigit(schema[fila][columna - 1])){ cuenta_part_numbers++; }
-    if(isdigit(schema[fila][columna + 1])){ cuenta_part_numbers++; }
-    if(isdigit(schema[fila -1][columna - 1])){ 
-        cuenta_part_numbers++; 
-        if(!isdigit(schema[fila -1][columna] ) && isdigit(schema[fila -1][columna + 1])){ cuenta_part_numbers++; }
-    } else if(isdigit(schema[fila -1][columna]) || schema[fila -1][columna + 1]){ cuenta_part_numbers++; }
-
-    if(isdigit(schema[fila + 1][columna - 1])){ 
-        cuenta_part_numbers++; 
-        if(!isdigit(schema[fila  + 1][columna]) && isdigit(schema[fila + 1][columna + 1])){ cuenta_part_numbers++; }
-    } else if(isdigit(schema[fila + 1][columna]) || schema[fila + 1][columna + 1]){ cuenta_part_numbers++; }
-    
-
-    if(cuenta_part_numbers != 2){ return 0; } // Si no hay dos part numbers exactamente adyacentes, no se hace nada
-
-    return 1;
+void simbolos(){
+    for(int i = 0; i < schema.size(); i++){
+        for(int j = 0; j < schema[i].size(); j++){
+            if(is_symbol(schema[i][j])){
+                simbolos_info.push_back({i, j, 0, 1});
+            }
+        }
+    }
 }
 
+// devuelve el valor del "gear ratio" en la posición pos en caso de haber dos part numbers exactamente adyacentes
+void gear_ratios(){
+    int ini_num, fin_num, valor;
 
-int calcular_suma(std::vector<std::vector<char>> schema){
-    int suma = 0;
-    int n_linea = 0;
+    /* Recorrer schema */
+    for(int i = 0; i < schema.size(); i++){
+        for(int j = 0; j < schema[i].size(); j++){
+            if(isdigit(schema[i][j])){
+                ini_num = j, fin_num = ini_num; 
+                while(++j < schema[i].size() && isdigit(schema[i][j])){ fin_num++;} // Buscar el final del número
+                valor = schema_to_int(i, ini_num, fin_num);
 
-    int inicio_numero;
-
-    //Filas del esquema
-    for(n_linea = 0; n_linea < SCHEMA_TAM; n_linea++){
-
-        for(int j = 0; j < SCHEMA_TAM; j++){
-            if(is_symbol(schema[n_linea][j]) && n_linea == 2){ suma += 0;
-            if(gear_ratio(schema, make_pair(n_linea, j)) == 1){
-                cout << "gR " << n_linea << ", " << j << " Simbolo: " << schema[n_linea][j] << endl;
-            }}
+                for(int k = ini_num - 1; k < fin_num + 2; k++){
+                    for(int l = i - 1; l < i + 2; l++){
+                        if(l < 0 || l >= schema.size() || k < 0 || k >= schema[l].size()){ continue; } // Si se sale del esquema, no se comprueba
+                        if(is_symbol(schema[l][k])){ // Si es un símbolo, se busca en simbolos_info
+                            for(int m = 0; m < simbolos_info.size(); m++ ){
+                                if(simbolos_info[m][0] == l && simbolos_info[m][1] == k){
+                                    simbolos_info[m][2]++;
+                                    simbolos_info[m][3] *= valor;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
+    }
+}
+
+/* Si el numero 'part numbers' adyacentes es exactamente 2 se añade el gear ratio al total */
+long calcular_suma(){
+    long suma = 0;
+    for (int i = 0; i < simbolos_info.size(); i++){
+        if(simbolos_info[i][2] == 2) suma += simbolos_info[i][3];
     }
     return suma;
 }
 
+void read_input(){
+    string linea;
+    while (getline(cin, linea)){
+        vector<char> fila;
+        for (char c : linea) fila.push_back(c);
+        schema.push_back(fila);
+    }    
+}
+
 int main(){
+    read_input();
+    simbolos();
+    gear_ratios();
 
-    std::vector<std::vector<char>> schema = leer_entrada();
-    int gear_ratio_sum =  calcular_suma(schema);  
-
-    cout << "Suma \"gear ratios\": " << gear_ratio_sum << endl;
+    cout << "Suma \"gear ratios\": " << calcular_suma() << endl;
 
     return 0;
 }
