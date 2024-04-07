@@ -20,7 +20,7 @@ Advent of Code is an annual online event that takes place during the month of De
 
 It's written with as many comments and readability as possible.
 
-<b>However, it may:</b>
+However, it may:
 
  - Contain errors
  - Not be efficient in terms of time/memory
