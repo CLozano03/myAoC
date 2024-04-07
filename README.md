@@ -12,7 +12,7 @@ Link to the [official website](https://adventofcode.com/).
 
 Advent of Code is an annual online event that takes place during the month of December. It's a series of daily programming challenges that typically involve solving algorithmic or coding problems. These challenges are designed to be fun and educational, covering a wide range of topics from basic algorithms to more advanced problems in data structures and mathematics.
 
-### Years completed and languages used:
+### Participation years and languages used:
  - [2022](https://adventofcode.com/2022): C
  - [2023](https://adventofcode.com/2023): C++
 
