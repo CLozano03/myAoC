@@ -18,10 +18,9 @@ def read_file():
 def __check_matrix_pos(coord: Tuple[int, int]) -> int:
     return coord[0] >= 0 and coord[1] >= 0 and coord[0] < _n_rows_matrix and coord[1] < _n_cols_matrix 
 
+# Easy way to access elements of a matrix
 def el_matrix(matrix, coord):
     return matrix[coord[0]][coord[1]]
-
-
 
 def is_X_MAS(matrix, coord: Tuple[int, int]):
     top_left = (coord[0] - 1, coord[1] - 1)
@@ -56,7 +55,6 @@ def count_str_matrix(matrix):
             total_sum += is_X_MAS(matrix, (i,j))
          
     return total_sum       
-
 
 input_matrix = read_file() # First convert the input into a matrix of chars
 res = count_str_matrix(input_matrix) # Count all the 'X-MAS' appears in matrix
