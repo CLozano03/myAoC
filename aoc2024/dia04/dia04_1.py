@@ -1,6 +1,7 @@
 from typing import Tuple
 
 FILENAME = "input.txt"
+NUM_DIRS = 8
 string_aim = "XMAS"
 
 _n_rows_matrix = None
@@ -13,9 +14,6 @@ _n_cols_matrix = None
     6 7 8
     
 '''
-
-NUM_DIRS = 8
-
 
 def read_file():
     global _n_rows_matrix, _n_cols_matrix 
@@ -72,12 +70,8 @@ def count_str_matrix(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
             
-            #print ("i:", i, "   j: ", j, "el: ", matrix[i][j])
-            
             if matrix[i][j] != string_aim[0]:
                 continue
-            
-            print("hola")
             
             for d in range(1, NUM_DIRS + 1):
                 total_sum += find_from_dir(matrix, d, (i, j))
