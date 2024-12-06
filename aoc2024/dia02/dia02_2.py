@@ -37,6 +37,13 @@ def sum_safe_reports(reports):
         
         if check_safe(report):
             safe_reports_sum += 1; continue
+        
+        for i in range(len(report)):
+            report_mod = report.copy()
+            report_mod.pop(i)
+
+            if check_safe(report_mod):
+                safe_reports_sum += 1; break
                 
     return safe_reports_sum    
 
