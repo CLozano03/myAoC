@@ -5,14 +5,6 @@ FILENAME = "input.txt"
 cal_values = []
 num_aim = None; len_num_list = None
 
-class TreeNode:
-    def __init__(self, value):
-        self.value = value
-        self.left = None  # Nodo izquierdo
-        self.right = None  # Nodo derecho
-
-# -------------------------------------------------------------------------------
-
 def read_file(): 
     with open(FILENAME, 'r') as file:
         return file.readlines()

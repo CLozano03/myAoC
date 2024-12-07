@@ -5,14 +5,6 @@ FILENAME = "input.txt"
 cal_values = []
 num_aim = None; len_num_list = None
 
-class TreeNode:
-    def __init__(self, value):
-        self.value = value
-        self.left = None  # Nodo izquierdo
-        self.right = None  # Nodo derecho
-
-# -------------------------------------------------------------------------------
-
 def read_file(): 
     with open(FILENAME, 'r') as file:
         return file.readlines()
@@ -28,7 +20,6 @@ def check_calibration(curr_val: int, level=0):
     res += check_calibration(curr_val*cal_values[level+1], level + 1)
     if res == 0: res += check_calibration(curr_val + cal_values[level+1], level + 1)
     return res
-    
    
 def calculate_calibration_res(file_lines: List[str]):
     global num_aim, cal_values, len_num_list
