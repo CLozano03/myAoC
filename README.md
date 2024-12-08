@@ -12,11 +12,18 @@ Link to the [official website](https://adventofcode.com/).
 
 > Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like.
 
-Advent of Code is an annual online event that takes place during the month of December. It's a series of daily programming challenges that typically involve solving algorithmic or coding problems. These challenges are designed to be fun and educational, covering a wide range of topics from basic algorithms to more advanced problems in data structures and mathematics.
+Advent of Code is an annual online event that takes place during the month of December :christmas_tree:. It's a series of daily programming challenges that typically involve solving algorithmic or coding problems. These challenges are designed to be fun and educational, covering a wide range of topics from basic algorithms to more advanced problems in data structures and mathematics. :rocket:
 
-### Participation years and languages used
- - [2022](https://adventofcode.com/2022): C
- - [2023](https://adventofcode.com/2023): C++
+Each day includes two problems, where solving the first unlocks the second. Completing both problems earns you two stars per day, allowing participants to collect up to 50 stars :star: each year.
+
+### Participation years stats
+
+| Year  | Language | :star: / 50 |
+|:------------- |:---------------:| :-------------:|
+| [2022](https://adventofcode.com/2022)         | C          |  22        |
+| [2023](https://adventofcode.com/2023)         | C++          | 21        |
+| [2024](https://adventofcode.com/2024)         | Python          | ...        |
+
 
 ### The Code
 
