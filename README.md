@@ -18,9 +18,10 @@ Advent of Code is an annual online event that takes place during the month of De
 
 Each day includes two problems, where solving the first unlocks the second. Completing both problems earns you two stars per day, allowing participants to collect up to 50 stars :star: each year.
 
-### My participation years stats
-
 <div align="center">
+
+#### My participation years stats
+
 
 | Year  | Language | :star: / 50 |
 |:------------- |:---------------:| :-------------:|
@@ -34,16 +35,19 @@ Each day includes two problems, where solving the first unlocks the second. Comp
 
 It's written with as many comments and readability as possible.
 
-However, it may:
+:warning: However, it may:
 
  - Contain errors.
  - Not be efficient in terms of time/memory.
- - Be unreadable and lacking in documentation (comments may be in Spanish).
+ - Be unreadable.
+ - Lacking in documentation (comments may be in Spanish).
 
-### Inputs
+## Inputs :page_facing_up:
 
-The input of my problems are each in their respective folder. They are passed to the program as standard input or the program directly opens the file.
+ The inputs are passed to the program as standard input or the program directly opens the file.
+ 
+ The input of my problems are each in their respective folder :file_folder:. However programs must work for every input.
 
-### License
+## License
 Code under [MIT license](https://github.com/CLozano03/myAoC/blob/main/LICENSE).
 
