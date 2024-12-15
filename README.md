@@ -1,14 +1,16 @@
 <div align="center">
-    <h2>Advent of Code Solutions</h2>
+    <h1>:christmas_tree: Advent of Code Solutions :christmas_tree:</h1>
+</div>
+<div align="center">
+    <img src="./assets/aoc_tree.jpg"  width="1000" height="451">
 </div>
 
-Repository with the code for my solutions of the **Advent of Code** contest.
+Repository with the code for my solutions of the [**Advent of Code**](https://adventofcode.com/) contest.
 
-The goal of this repository is to contribute to the Advent of Code community with (maybe) some original ideas.
+The goal of this repository is to upgrade my skills in programming and contribute to the Advent of Code community with (maybe) some original ideas.
 
-Link to the [official website](https://adventofcode.com/).
 
-### Advent of Code?
+## Advent of Code?
 
 > Advent of Code is an Advent calendar of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming language you like.
 
@@ -16,7 +18,9 @@ Advent of Code is an annual online event that takes place during the month of De
 
 Each day includes two problems, where solving the first unlocks the second. Completing both problems earns you two stars per day, allowing participants to collect up to 50 stars :star: each year.
 
-### Participation years stats
+### My participation years stats
+
+<div align="center">
 
 | Year  | Language | :star: / 50 |
 |:------------- |:---------------:| :-------------:|
@@ -24,8 +28,9 @@ Each day includes two problems, where solving the first unlocks the second. Comp
 | [2023](https://adventofcode.com/2023)         | C++          | 21        |
 | [2024](https://adventofcode.com/2024)         | Python          | ...        |
 
+</div>
 
-### The Code
+## The Code
 
 It's written with as many comments and readability as possible.
 
@@ -33,7 +38,11 @@ However, it may:
 
  - Contain errors.
  - Not be efficient in terms of time/memory.
- - Be unreadable and lacking in documentation (code comments are in Spanish).
+ - Be unreadable and lacking in documentation (comments may be in Spanish).
+
+### Inputs
+
+The input of my problems are each in their respective folder. They are passed to the program as standard input or the program directly opens the file.
 
 ### License
 Code under [MIT license](https://github.com/CLozano03/myAoC/blob/main/LICENSE).
