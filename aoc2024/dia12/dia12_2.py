@@ -38,9 +38,24 @@ class Map:
                 neighbours = [(x + dir[0], y + dir[1]) for dir in DIRS]
                 for neighbour in neighbours:
                     if neighbour[0] not in range(self.n_rows) or neighbour[1] not in range(self.n_cols) or neighbour not in coords:
-                        perim_coords.add((coord, neighbour)) # Add the perimeter coordinates    
-        
-            total_price += area * len(perim_coords)
+                        perim_coords.add((coord, neighbour)) # Add the perimeter coordinates
+            
+            sides = set()
+            
+            # For each perimeter coordinate, check if it is a side
+            for coord, neigh in perim_coords:
+                count_as_side = True    
+            
+                for dir in [(0, 1), (1, 0)]:
+                    next1 = (coord[0] + dir[0], coord[1] + dir[1])
+                    next2 = (neigh[0] + dir[0], neigh[1] + dir[1])
+                    if (next1, next2) in perim_coords:
+                        count_as_side = False
+                        
+                if count_as_side:
+                    sides.add((coord, neigh))
+                                        
+            total_price += area * len(sides)
 
         return total_price
         
