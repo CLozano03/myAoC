@@ -25,9 +25,9 @@ Each day includes two problems, where solving the first unlocks the second. Comp
 
 | Year  | Language | :star: / 50 |
 |:------------- |:---------------:| :-------------:|
-| [2022](https://adventofcode.com/2022)         | C          |  22        |
-| [2023](https://adventofcode.com/2023)         | C++          | 21        |
-| [2024](https://adventofcode.com/2024)         | Python          | ...        |
+| [2022](https://adventofcode.com/2022)         | C          | 22        |
+| [2023](https://adventofcode.com/2023)         | C++        | 21        |
+| [2024](https://adventofcode.com/2024)         | Python     | 50        |
 
 </div>
 
