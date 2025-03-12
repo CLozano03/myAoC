@@ -1,8 +1,10 @@
-import networkx as nx # pip install networkx
+import networkx as nx  # pip install networkx
 
 FILENAME = "input.txt"
 
-G = nx.Graph() # All computers represent nodes, and connections represent edges
+G = (
+    nx.Graph()
+)  # All computers represent nodes, and connections represent edges
 
 for line in open(FILENAME):
     node, neighbor = line.strip().split("-")
@@ -12,4 +14,4 @@ for line in open(FILENAME):
 cliques = list(nx.find_cliques(G))
 
 res = ",".join(sorted(max(cliques, key=len)))
-print(f'Maximum clique: {res}')
+print(f"Maximum clique: {res}")
