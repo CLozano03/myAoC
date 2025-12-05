@@ -31,5 +31,11 @@ def forklits(grid: list[list[str]]) -> tuple[int, list[list[str]]]:
     return count, new_grid
 
 
-extra, grid = forklits(grid)
-print(extra)
+total = 0
+extra = 1
+
+while extra != 0:
+    extra, grid = forklits(grid)
+    total += extra
+
+print(total)
